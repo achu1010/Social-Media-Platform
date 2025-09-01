@@ -112,7 +112,7 @@ const FriendsPage = () => {
               />
             ) : (
               <span className="text-white text-lg font-medium">
-                {userData.username.charAt(0).toUpperCase()}
+                {userData.username?.charAt(0).toUpperCase() || 'U'}
               </span>
             )}
           </div>
@@ -122,9 +122,9 @@ const FriendsPage = () => {
             to={`/profile/${userData._id}`}
             className="font-medium text-gray-900 hover:text-primary-600"
           >
-            {userData.username}
+            {userData.username || 'Unknown User'}
           </Link>
-          <p className="text-sm text-gray-600">{userData.email}</p>
+          <p className="text-sm text-gray-600">{userData.email || 'No email'}</p>
           {userData.bio && (
             <p className="text-sm text-gray-500 mt-1 max-w-xs truncate">{userData.bio}</p>
           )}

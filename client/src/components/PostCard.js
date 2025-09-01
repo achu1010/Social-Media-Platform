@@ -106,7 +106,7 @@ const PostCard = ({ post, onPostDeleted, onPostUpdated }) => {
                 />
               ) : (
                 <span className="text-white text-sm font-medium">
-                  {post.userId.username.charAt(0).toUpperCase()}
+                  {post.userId?.username?.charAt(0).toUpperCase() || 'U'}
                 </span>
               )}
             </div>
@@ -116,7 +116,7 @@ const PostCard = ({ post, onPostDeleted, onPostUpdated }) => {
               to={`/profile/${post.userId._id}`}
               className="font-medium text-gray-900 hover:text-primary-600"
             >
-              {post.userId.username}
+              {post.userId?.username || 'Unknown User'}
             </Link>
             <p className="text-sm text-gray-500">{formatDate(post.createdAt)}</p>
           </div>
@@ -267,7 +267,7 @@ const PostCard = ({ post, onPostDeleted, onPostUpdated }) => {
                       />
                     ) : (
                       <span className="text-white text-xs font-medium">
-                        {comment.userId.username.charAt(0).toUpperCase()}
+                        {comment.userId?.username?.charAt(0).toUpperCase() || 'U'}
                       </span>
                     )}
                   </div>
@@ -278,7 +278,7 @@ const PostCard = ({ post, onPostDeleted, onPostUpdated }) => {
                       to={`/profile/${comment.userId._id}`}
                       className="font-medium text-sm text-gray-900 hover:text-primary-600"
                     >
-                      {comment.userId.username}
+                      {comment.userId?.username || 'Unknown User'}
                     </Link>
                     <p className="text-sm text-gray-800">{comment.text}</p>
                   </div>
